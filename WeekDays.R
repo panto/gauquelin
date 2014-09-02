@@ -13,12 +13,12 @@ plotWeekDays <- function(data, title) {
 }
 
 par(mfrow=c(3,3)) 
-plotWeekDays(subset(professions, PRO=="Sportsmans"), "Sportsmans")
+plotWeekDays(subset(professions, PRO=="Sportsmen"), "Sportsmen")
 plotWeekDays(subset(professions, PRO=="Scientists"), "Scientists")
 plotWeekDays(subset(professions, PRO=="Military"), "Military")
 plotWeekDays(subset(professions, PRO=="Painters"), "Painters")
-plotWeekDays(subset(professions, PRO=="Musicans"), "Musicans")
+plotWeekDays(subset(professions, PRO=="Musicians"), "Musicians")
 plotWeekDays(subset(professions, PRO=="Actors"), "Actors")
 plotWeekDays(subset(professions, PRO=="Politicians"), "Politicians")
 plotWeekDays(subset(professions, PRO=="Writers"), "Writers")
-plotWeekDays(subset(professions, PRO=="Jurnalists"), "Jurnalists")
+plotWeekDays(subset(professions, PRO=="Journalists"), "Journalists")
