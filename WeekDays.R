@@ -1,5 +1,6 @@
 require(lubridate)
-source('data/professions.R')
+
+professions <- read.delim("~/rstats/Gauquelin-R-Stats/data/series-A.tsv")
 
 plotWeekDays <- function(data, title) {
   data$data <- ymd_hms(sprintf("%d-%d-%d %d:%d:%d", data$YEA, data$MON, data$DAY, data$H,data$MN,data$SEC))
