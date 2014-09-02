@@ -1,10 +1,10 @@
 require(lubridate)
 require(plyr)
 
-Sport    <- read.delim("data/Gauquelin-SportsChampions.tsv")
-Military <- read.delim("data/Gauquelin-MilitaryMan.tsv")
-Science  <- read.delim("data/Gauquelin-Scientists-Doctors.tsv")
-Paint  <- read.delim("data/Gauquelin-Painters-Musicans.tsv")
+Sport    <- read.delim("data/series-A-professions/Gauquelin-SportsChampions.tsv")
+Military <- read.delim("data/series-A-professions/Gauquelin-MilitaryMan.tsv")
+Science  <- read.delim("data/series-A-professions/Gauquelin-Scientists-Doctors.tsv")
+Paint  <- read.delim("data/series-A-professions/Gauquelin-Painters-Musicans.tsv")
 
 plotWeekDays <- function(data, title) {
   data$data <- ymd_hms(sprintf("%d-%d-%d %d:%d:%d", data$YEA, data$MON, data$DAY, data$H,data$MN,data$SEC))
