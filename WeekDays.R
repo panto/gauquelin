@@ -1,10 +1,5 @@
 require(lubridate)
-require(plyr)
-
-Sport    <- read.delim("data/series-A-professions/Gauquelin-SportsChampions.tsv")
-Military <- read.delim("data/series-A-professions/Gauquelin-MilitaryMan.tsv")
-Science  <- read.delim("data/series-A-professions/Gauquelin-Scientists-Doctors.tsv")
-Paint  <- read.delim("data/series-A-professions/Gauquelin-Painters-Musicans.tsv")
+source('data/professions.R')
 
 plotWeekDays <- function(data, title) {
   data$data <- ymd_hms(sprintf("%d-%d-%d %d:%d:%d", data$YEA, data$MON, data$DAY, data$H,data$MN,data$SEC))
@@ -13,11 +8,16 @@ plotWeekDays <- function(data, title) {
   chisq = chisq.test(counts)
   barplot(counts)
   abline(h=mean(counts), col=2, lty=2)
-  title(sprintf("%s n=%d\np-value=%.4f", title, nrow(data), chisq$p.value))
+  title(sprintf("%s\nn=%d p-value=%.3f", title, nrow(data), chisq$p.value))
 }
 
-par(mfrow=c(2,2)) 
-plotWeekDays(Sport, "Sports Champions")
-plotWeekDays(Military, "Military Man")
-plotWeekDays(Science, "Scientists & Doctors")
-plotWeekDays(Paint, "Painters & Musicans")
+par(mfrow=c(3,3)) 
+plotWeekDays(subset(professions, PRO=="Sportsmans"), "Sportsmans")
+plotWeekDays(subset(professions, PRO=="Scientists"), "Scientists")
+plotWeekDays(subset(professions, PRO=="Military"), "Military")
+plotWeekDays(subset(professions, PRO=="Painters"), "Painters")
+plotWeekDays(subset(professions, PRO=="Musicans"), "Musicans")
+plotWeekDays(subset(professions, PRO=="Actors"), "Actors")
+plotWeekDays(subset(professions, PRO=="Politicians"), "Politicians")
+plotWeekDays(subset(professions, PRO=="Writers"), "Writers")
+plotWeekDays(subset(professions, PRO=="Jurnalists"), "Jurnalists")
