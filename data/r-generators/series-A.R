@@ -16,14 +16,19 @@ vol4$PRO <- revalue(vol4$PRO, c("P"="Painters", "M"="Musicians"))
 vol5$PRO <- revalue(vol5$PRO, c("A"="Actors", "PT"="Politicians"))
 vol6$PRO <- revalue(vol6$PRO, c("J"="Journalists", "W"="Writers")) 
 
-series.A = rbind(vol1, vol2, vol3, vol4, vol5, vol6)
-series.A$COU <- revalue(series.A$COU, c("F"="France", "I"="Italy", "G"="Germany", "B"="Belgium", "N"="Netherlands", "S"="Switzerland"))
-write.table(series.A, file='data/series-A.tsv', quote=FALSE, sep='\t')
+# Bind volumes
+professions = rbind(vol1, vol2, vol3, vol4, vol5, vol6)
+
+# The level name is chenging
+professions$COU <- revalue(professions$COU, c("F"="France", "I"="Italy", "G"="Germany", "B"="Belgium", "N"="Netherlands", "S"="Switzerland"))
+
+# WRITE !!!
+write.table(professions, file='data/series-A.tsv', quote=FALSE, sep='\t')
 
 # Clearing
-# rm(vol1, vol2, vol3, vol4, vol5, vol6)
+rm(vol1, vol2, vol3, vol4, vol5, vol6)
 
 # Control plot 
-# pie(table(professions$PRO))
-# title(sprintf("M. Gauqueline Professions (series A, n=%d)", nrow(professions)))
-# table(professions$PRO)
+pie(table(professions$PRO))
+title(sprintf("M. Gauqueline Professions (series A, n=%d)", nrow(professions)))
+table(professions$PRO)
